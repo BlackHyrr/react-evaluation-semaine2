@@ -24,7 +24,6 @@ const Home = () => {
     if (isLoading) {
         return <div>Loading...</div>;
     }
-    console.log(posts)
     return (
         <div>
             <h1>Homepage</h1>

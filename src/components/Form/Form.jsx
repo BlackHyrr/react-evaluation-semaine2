@@ -13,7 +13,6 @@ const Form = ({ formConfig, addEntityAction, actions }) => {
         const errors = {};
         // I will have to update this, I have error messages both in the validators config and in the formConfig, a bit redundant :/
         for (let field of Object.values(formConfig.fields)) {
-            console.log(field);
             for (let validate of field.validate) {
                 const errorMessage = validate(field.value);
                 if (errorMessage) {
@@ -37,14 +36,12 @@ const Form = ({ formConfig, addEntityAction, actions }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(addEntityAction);
     
         const errors = validateForm(formConfig);
         if (Object.keys(errors).length > 0) {
             setFormErrors(errors);
             return;
         }
-        console.log('form submitted', e)
         dispatch(addEntityAction);
     }
 

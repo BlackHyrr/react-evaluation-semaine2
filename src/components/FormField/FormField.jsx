@@ -1,7 +1,6 @@
 import './FormField.css';
 
 const FormField = ({ fieldType, field, formErrors, handleInputChange, actionName, required }) => {
-    console.log(required)
     switch (fieldType) {
         case 'input':
             return (

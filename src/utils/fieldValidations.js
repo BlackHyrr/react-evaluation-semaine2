@@ -1,5 +1,4 @@
 export const validateNotEmpty = value => {
-    console.log(value)
     if (value === undefined || value.trim() === '') {
         return 'This field cannot be empty';
     }

@@ -65,7 +65,6 @@ const commentSlice = createSlice({
         },
         addCommentInState: (state, action) => {
             const maxId = Math.max(...state.comments.map(comment => Number(comment.id)), 0);
-            console.log(maxId);
             const newComment = {
                 id: maxId + 1,
                 postId: action.payload.postId,
