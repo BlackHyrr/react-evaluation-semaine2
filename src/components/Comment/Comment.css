@@ -1,0 +1,23 @@
+.comment {
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.comment h2 {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.comment-email {
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.comment-body {
+    margin: 0;
+    font-size: 1em;
+}

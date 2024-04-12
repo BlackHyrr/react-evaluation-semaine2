@@ -1,0 +1,13 @@
+.detail-post .post {
+    margin-bottom: 20px;
+    min-height: 400px;
+}
+
+.detail-post .post p:last-child {
+    margin: 20px 0;
+}
+
+.comment-list {
+    margin: 50px 0;
+    border-top: 1px solid #ccc;
+}

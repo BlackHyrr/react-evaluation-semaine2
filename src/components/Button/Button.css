@@ -1,0 +1,29 @@
+.btn {
+    margin-right: 10px;
+    padding: 5px 25px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .add-btn {
+    background-color: #4CAF50;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+  }
+  
+  .modify-btn {
+    background-color: #008CBA;
+  }
+  
+  .submit-btn {
+    background-color: #008CBA;
+  }
+  
+  .reset-btn {
+    background-color: #f44336;
+  }
