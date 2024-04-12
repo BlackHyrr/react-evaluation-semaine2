@@ -3,8 +3,8 @@ import './PostForm.css';
 import Form from '../../../components/Form/Form';
 import postFormConfig from '../../../config/formConfig/postFormConfig';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPostInState, addPosts, fetchPostWithId, resetPost, setPostBody, setPostTitle, updatePost, updatePostInState } from '../../../store/Slice/postSlice';
-import { selectPost, selectPostBody, selectPostFromId, selectPostTitle } from '../../../store/selectors';
+import { addPostInState, fetchPostWithId, resetPost, setPostBody, setPostTitle, updatePost, updatePostInState } from '../../../store/Slice/postSlice';
+import { selectPost, selectPostBody, selectPostTitle } from '../../../store/selectors';
 import { useEffect } from 'react';
 
 const PostForm = () => {
@@ -14,6 +14,7 @@ const PostForm = () => {
     const body = useSelector(selectPostBody);
     const post = useSelector(selectPost)
 
+    // I was trying to get the post from the store to display it in the form... but it didn't work ¯\_(ツ)_/¯
     useEffect(() => {
         if (postId) {
             dispatch(fetchPostWithId(postId));
@@ -32,7 +33,7 @@ const PostForm = () => {
             // dispatch(addPosts(post));  
             /*
             * The post is added twice if I do that and I don't know why
-            * There are no problems for the comments despite doing the same thing
+            * There are no problems for the comments despite me doing the same thing (╥﹏╥)
             */
         }
 

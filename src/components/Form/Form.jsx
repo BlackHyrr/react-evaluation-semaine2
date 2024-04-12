@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import './Form.css';
 import { useState } from "react";
 import FormField from "../FormField/FormField";
@@ -11,7 +11,7 @@ const Form = ({ formConfig, addEntityAction, actions }) => {
 
     const validateForm = (formConfig) => {
         const errors = {};
-    
+        // I will have to update this, I have error messages both in the validators config and in the formConfig, a bit redundant :/
         for (let field of Object.values(formConfig.fields)) {
             console.log(field);
             for (let validate of field.validate) {
