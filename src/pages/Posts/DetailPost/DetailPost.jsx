@@ -18,6 +18,11 @@ const DetailPost = () => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        window.scrollTo(0, 0);
+        // Necessary ? Somehow, I keep the scroll position when I go from Home to DetailPost...
+    }, []);
+
+    useEffect(() => {
         dispatch(fetchComments(postId));
     }, [dispatch, postId]);
     

@@ -70,7 +70,6 @@ const postSlice = createSlice({
     initialState: {
         post: {
             userId: 1,
-            id: 1,
             title: '',
             body: '',
         },
@@ -83,6 +82,10 @@ const postSlice = createSlice({
         },
         setPostBody: (state, action) => {
             state.post.body = action.payload;
+        },
+        updatePostInState: (state, action) => {
+            const index = state.posts.findIndex(post => post.id === action.payload.id);
+            state.posts[index] = action.payload;
         },
         addPostInState: (state, action) => {
             const maxId = Math.max(...state.posts.map(post => Number(post.id)), 0);
@@ -131,6 +134,7 @@ export const {
     setPostTitle,
     setPostBody,
     addPostInState,
+    updatePostInState,
     resetPost
 } = postSlice.actions
 

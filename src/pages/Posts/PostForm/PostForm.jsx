@@ -3,8 +3,8 @@ import './PostForm.css';
 import Form from '../../../components/Form/Form';
 import postFormConfig from '../../../config/formConfig/postFormConfig';
 import { useDispatch, useSelector } from 'react-redux';
-import { addPostInState, addPosts, fetchPostWithId, resetPost, setPostBody, setPostTitle, updatePost } from '../../../store/Slice/postSlice';
-import { selectPost, selectPostBody, selectPostTitle } from '../../../store/selectors';
+import { addPostInState, addPosts, fetchPostWithId, resetPost, setPostBody, setPostTitle, updatePost, updatePostInState } from '../../../store/Slice/postSlice';
+import { selectPost, selectPostBody, selectPostFromId, selectPostTitle } from '../../../store/selectors';
 import { useEffect } from 'react';
 
 const PostForm = () => {
@@ -18,23 +18,22 @@ const PostForm = () => {
         if (postId) {
             dispatch(fetchPostWithId(postId));
         }
-    }, [dispatch, postId]);
-
-    useEffect(() => {
-        if (post) {
-            dispatch(setPostTitle(post.title));
-            dispatch(setPostBody(post.body));
-        } else {
+        return () =>  {
             dispatch(resetPost());
         }
-    }, [dispatch, post]);
+    }, [dispatch, postId]);
 
     const handleAddPost = () => {
         if(postId) {
+            dispatch(updatePostInState(post));
             dispatch(updatePost(post));
         } else {
-            dispatch(addPostInState());
-            dispatch(addPosts(post))
+            dispatch(addPostInState(post));
+            // dispatch(addPosts(post));  
+            /*
+            * The post is added twice if I do that and I don't know why
+            * There are no problems for the comments despite doing the same thing
+            */
         }
 
         resetPost();

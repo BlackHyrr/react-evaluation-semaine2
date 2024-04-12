@@ -1,6 +1,7 @@
 import './FormField.css';
 
 const FormField = ({ fieldType, field, formErrors, handleInputChange, actionName, required }) => {
+    console.log(required)
     switch (fieldType) {
         case 'input':
             return (
@@ -12,7 +13,7 @@ const FormField = ({ fieldType, field, formErrors, handleInputChange, actionName
                         placeholder={field.placeholder}
                         value={field.value}
                         onChange={(e) => handleInputChange(e, actionName)}
-                        required={required}
+                        required={required ? 'true' : 'false'}
                     />
                     <div className={'form-error'}>
                         {formErrors[field.name] && <span>{formErrors[field.name]}</span>}
@@ -31,7 +32,7 @@ const FormField = ({ fieldType, field, formErrors, handleInputChange, actionName
                         onChange={(e) => handleInputChange(e, actionName)}
                         rows={field.rows || 5}
                         cols={field.cols || 50}
-                        required={required}
+                        required={required ? 'true' : 'false'}
                     />
                     <div className={'form-error'}>
                         {formErrors[field.name] && <span>{formErrors[field.name]}</span>}
@@ -48,7 +49,7 @@ const FormField = ({ fieldType, field, formErrors, handleInputChange, actionName
                         className={formErrors[field.name] ? 'invalid-field' : ''}
                         value={field.value}
                         onChange={(e) => handleInputChange(e, actionName)}
-                        required={required}
+                        required={required ? 'true' : 'false'}
                     >
                         {field.options && field.options.map((option, index) => (
                             <option key={index} value={option.value}>
