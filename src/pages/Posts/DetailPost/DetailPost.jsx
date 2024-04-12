@@ -20,6 +20,7 @@ const DetailPost = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
         // Necessary ? Somehow, I keep the scroll position when I go from Home to DetailPost...
+        // And vice versa I imagine.
     }, []);
 
     useEffect(() => {
@@ -39,6 +40,7 @@ const DetailPost = () => {
             <h1>Detail Post</h1>
             <Post postId={postId}/>
             <Link to={`/add-post/${postId}`}>
+                {/* didn't have time to modify generatePath() to add options as parameters, like passing an Id */}
                 <span className={'btn modify-btn'}>Edit</span>
             </Link>
             <div className={'comment-list'}>
